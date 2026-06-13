@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>y不y · 热爱使用 AI 的人 | AI 二创 & 开源开发者</title>
+  <meta name="description" content="y不y（UltramanSaga）—— 热爱使用 AI 的大学生，AI 二创与 AI 抽象小视频创作者，全网播放 5000万+，单条最高 2731万，133⭐ 开源工具作者，计算机科学与技术在读。">
+  <link rel="icon" type="image/png" href="assets/project/icon.png">
+  <link rel="preload" as="image" href="assets/covers/sun-maybach.jpg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 顶部滚动进度条 -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- 3D 太阳系背景画布 -->
+  <canvas id="cosmos"></canvas>
+  <noscript>
+    <style>body { background: radial-gradient(ellipse at 50% 30%, #141433 0%, #050510 70%); }</style>
+  </noscript>
+
+  <!-- 导航 -->
+  <nav class="nav" id="nav">
+    <a href="#hero" class="nav-logo">Y<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="#hero" class="nav-link active">启程</a></li>
+      <li><a href="#stats" class="nav-link">数据</a></li>
+      <li><a href="#works" class="nav-link">作品</a></li>
+      <li><a href="#project" class="nav-link">开源</a></li>
+      <li><a href="#skills" class="nav-link">技能</a></li>
+      <li><a href="#contact" class="nav-link">联系</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- ① 启程 · Hero（太阳系全景） -->
+    <section class="section hero" id="hero">
+      <div class="hero-inner">
+        <p class="hero-eyebrow" data-reveal>欢迎来到我的太阳系 ☀️</p>
+        <h1 class="hero-title" data-reveal>
+          <span class="hero-greeting">你好，我是</span>
+          <span class="hero-name glow-text">y不y</span>
+        </h1>
+        <div class="hero-type" data-reveal>
+          <span class="type-prefix">&gt;</span>
+          <span id="typewriter"></span><span class="cursor">_</span>
+        </div>
+        <p class="hero-sub" data-reveal>
+          名字里有宇宙和星辰，作品里也有——<br class="mobile-br">
+          我用 AI 做出了 <em>5000万+</em> 播放的视频，<br class="mobile-br">
+          再把创作经验写成 <em>133⭐</em> 的开源工具。
+        </p>
+        <div class="hero-cta" data-reveal>
+          <a href="#stats" class="btn btn-primary">探索我的宇宙</a>
+          <a href="https://github.com/ganbo-gab/open-storyboard-canvas" target="_blank" rel="noopener" class="btn btn-ghost">GitHub ↗</a>
+        </div>
+      </div>
+      <a href="#stats" class="scroll-hint" aria-label="向下滚动">
+        <span class="scroll-mouse"></span>
+        <span class="scroll-text">SCROLL</span>
+      </a>
+    </section>
+
+    <!-- ② 数据星系 · Stats（木星：最大的行星，扛最大的数据） -->
+    <section class="section stats" id="stats">
+      <header class="section-head" data-reveal>
+        <p class="section-eyebrow">— 01 · 数据星系 · <span class="planet-name">JUPITER 木星</span> —</p>
+        <h2 class="section-title">数字会说话</h2>
+        <p class="section-desc">三个平台，一片正在膨胀的创作宇宙</p>
+      </header>
+
+      <div class="stats-grid">
+        <div class="glass stat-card" data-reveal>
+          <div class="stat-value"><span class="count" data-target="5000" data-suffix="万">0</span><span class="stat-plus">+</span></div>
+          <div class="stat-label">全网视频播放</div>
+          <div class="stat-note">快手 / 抖音 / B站</div>
+        </div>
+        <div class="glass stat-card" data-reveal>
+          <div class="stat-value"><span class="count" data-target="2731" data-suffix="万">0</span></div>
+          <div class="stat-label">单条最高播放</div>
+          <div class="stat-note">还上了快手热点榜</div>
+        </div>
+        <div class="glass stat-card" data-reveal>
+          <div class="stat-value"><span class="count" data-target="217" data-suffix="万">0</span><span class="stat-plus">+</span></div>
+          <div class="stat-label">全网获赞</div>
+          <div class="stat-note">快手 159.7万 + 抖音 58万</div>
+        </div>
+        <div class="glass stat-card" data-reveal>
+          <div class="stat-value"><span class="count" data-target="8.2" data-decimals="1" data-suffix="万">0</span><span class="stat-plus">+</span></div>
+          <div class="stat-label">全网粉丝</div>
+          <div class="stat-note">三平台持续增长</div>
+        </div>
+      </div>
+
+      <!-- 图表行：环形图 + 双条形图 -->
+      <div class="charts-row">
+
+        <div class="glass chart-card" data-reveal>
+          <h3 class="chart-title">播放量平台占比</h3>
+          <div class="donut-wrap">
+            <div class="donut" id="donut" role="img" aria-label="快手83%，抖音11%，B站6%">
+              <div class="donut-hole">
+                <span class="donut-total">5742<i>万</i></span>
+                <span class="donut-cap">可统计播放</span>
+              </div>
+            </div>
+            <ul class="donut-legend">
+              <li><i class="lg ks"></i>快手 <b>83%</b><span>4742万</span></li>
+              <li><i class="lg dy"></i>抖音 <b>11%</b><span>624万</span></li>
+              <li><i class="lg bl"></i>B站 <b>6%</b><span>376万</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="glass chart-card" data-reveal>
+          <h3 class="chart-title">粉丝分布</h3>
+          <div class="hbar-group">
+            <div class="hbar">
+              <div class="hbar-head"><span><i class="lg ks"></i>快手 · UltramanSaga</span><b>6.6万</b></div>
+              <div class="hbar-track"><i class="hbar-fill ks" style="--w:100%"></i></div>
+            </div>
+            <div class="hbar">
+              <div class="hbar-head"><span><i class="lg bl"></i>B站 · y不yyyy</span><b>8154</b></div>
+              <div class="hbar-track"><i class="hbar-fill bl" style="--w:12.4%"></i></div>
+            </div>
+            <div class="hbar">
+              <div class="hbar-head"><span><i class="lg dy"></i>抖音 · y不y</span><b>7456</b></div>
+              <div class="hbar-track"><i class="hbar-fill dy" style="--w:11.3%"></i></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass chart-card" data-reveal>
+          <h3 class="chart-title">获赞分布</h3>
+          <div class="hbar-group">
+            <div class="hbar">
+              <div class="hbar-head"><span><i class="lg ks"></i>快手</span><b>159.7万</b></div>
+              <div class="hbar-track"><i class="hbar-fill ks" style="--w:100%"></i></div>
+            </div>
+            <div class="hbar">
+              <div class="hbar-head"><span><i class="lg dy"></i>抖音</span><b>58.01万</b></div>
+              <div class="hbar-track"><i class="hbar-fill dy" style="--w:36.3%"></i></div>
+            </div>
+            <div class="hbar">
+              <div class="hbar-head"><span><i class="lg bl"></i>B站</span><b>统计中…</b></div>
+              <div class="hbar-track"><i class="hbar-fill bl" style="--w:8%"></i></div>
+            </div>
+          </div>
+          <p class="chart-note">单条最高获赞 67.6万（快手）</p>
+        </div>
+
+      </div>
+
+      <!-- 全网爆款排行榜 -->
+      <div class="glass ranking" data-reveal>
+        <h3 class="chart-title">🏆 全网爆款 TOP 9</h3>
+        <div class="rank-table">
+          <div class="rank-row" style="--p:100%">
+            <span class="rank-no gold-medal">1</span>
+            <span class="rank-title">狗熊岭的太阳也想开迈巴赫了</span>
+            <span class="rank-platform ks">快手</span>
+            <b class="rank-views">2731.6万</b>
+          </div>
+          <div class="rank-row" style="--p:32%">
+            <span class="rank-no silver-medal">2</span>
+            <span class="rank-title">400年后的三体人也能开迈巴赫了</span>
+            <span class="rank-platform ks">快手</span>
+            <b class="rank-views">874.2万</b>
+          </div>
+          <div class="rank-row" style="--p:20.6%">
+            <span class="rank-no bronze-medal">3</span>
+            <span class="rank-title">铠甲合体！</span>
+            <span class="rank-platform ks">快手</span>
+            <b class="rank-views">561.7万</b>
+          </div>
+          <div class="rank-row" style="--p:10.6%">
+            <span class="rank-no">4</span>
+            <span class="rank-title">《不败的狗熊》</span>
+            <span class="rank-platform ks">快手</span>
+            <b class="rank-views">290.4万</b>
+          </div>
+          <div class="rank-row" style="--p:9.7%">
+            <span class="rank-no">5</span>
+            <span class="rank-title">光头强找到丁亮</span>
+            <span class="rank-platform ks">快手</span>
+            <b class="rank-views">264.9万</b>
+          </div>
+          <div class="rank-row" style="--p:9.3%">
+            <span class="rank-no">6</span>
+            <span class="rank-title">有种正面豪！</span>
+            <span class="rank-platform dy">抖音</span>
+            <b class="rank-views">255.1万</b>
+          </div>
+          <div class="rank-row" style="--p:5.7%">
+            <span class="rank-no">7</span>
+            <span class="rank-title">《休息一下马上回来》</span>
+            <span class="rank-platform dy">抖音</span>
+            <b class="rank-views">156万</b>
+          </div>
+          <div class="rank-row" style="--p:3.9%">
+            <span class="rank-no">8</span>
+            <span class="rank-title">房子开播啦？真的假的？</span>
+            <span class="rank-platform dy">抖音</span>
+            <b class="rank-views">107.8万</b>
+          </div>
+          <div class="rank-row" style="--p:3.9%">
+            <span class="rank-no">9</span>
+            <span class="rank-title">AI自制奥特银河格斗 · 赛迦登场</span>
+            <span class="rank-platform bl">B站</span>
+            <b class="rank-views">107.6万</b>
+          </div>
+        </div>
+        <p class="stats-foot">· 同一作品多平台分别计票 · 数据截至 2026.06 · 仍在增长 ·</p>
+      </div>
+    </section>
+
+    <!-- ③ 爆款星图 · Works（火星：最火的星球） -->
+    <section class="section works" id="works">
+      <header class="section-head" data-reveal>
+        <p class="section-eyebrow">— 02 · 爆款星图 · <span class="planet-name">MARS 火星</span> —</p>
+        <h2 class="section-title">用 AI 讲故事</h2>
+        <p class="section-desc">AI 二创 × AI 抽象 —— 每一颗星，都是一次播放量爆炸</p>
+      </header>
+      <div class="works-grid">
+
+        <a class="glass work-card featured" href="https://v.kuaishou.com/KUyIhEe8" target="_blank" rel="noopener" data-reveal>
+          <div class="work-cover">
+            <img src="assets/covers/sun-maybach.jpg" alt="狗熊岭的太阳也想开迈巴赫了" loading="lazy">
+            <span class="work-views">▶ 全网 2823万+</span>
+            <span class="work-badge-hot">🔥 快手热点榜</span>
+          </div>
+          <div class="work-info">
+            <span class="work-platform ks">快手 2731.6万</span>
+            <span class="work-platform bili">B站 91.9万</span>
+            <h3 class="work-title">狗熊岭的太阳也想开迈巴赫了</h3>
+            <p class="work-meta">单条获赞 67.6万 · 「AI熊出没卷出新高度」</p>
+          </div>
+        </a>
+
+        <a class="glass work-card" href="https://v.kuaishou.com/KUyIhEe8" target="_blank" rel="noopener" data-reveal>
+          <div class="work-cover">
+            <img src="assets/covers/santi-maybach.jpg" alt="400年后的三体人也能开迈巴赫了" loading="lazy">
+            <span class="work-views">▶ 全网 903万+</span>
+          </div>
+          <div class="work-info">
+            <span class="work-platform ks">快手 874.2万</span>
+            <h3 class="work-title">400 年后的三体人也能开迈巴赫了</h3>
+            <p class="work-meta">科幻 × 热梗 · 获赞 27.2万</p>
+          </div>
+        </a>
+
+        <a class="glass work-card" href="https://v.kuaishou.com/KUyIhEe8" target="_blank" rel="noopener" data-reveal>
+          <div class="work-cover">
+            <img src="assets/covers/armor.jpg" alt="铠甲合体！" loading="lazy">
+            <span class="work-views">▶ 全网 567万+</span>
+          </div>
+          <div class="work-info">
+            <span class="work-platform ks">快手 561.7万</span>
+            <h3 class="work-title">铠甲合体！</h3>
+            <p class="work-meta">熊出没 × 铠甲勇士 · 获赞 17.7万</p>
+          </div>
+        </a>
+
+        <a class="glass work-card" href="https://v.kuaishou.com/KUyIhEe8" target="_blank" rel="noopener" data-reveal>
+          <div class="work-cover">
+            <img src="assets/covers/bear.jpg" alt="《不败的狗熊》" loading="lazy">
+            <span class="work-views">▶ 全网 354万+</span>
+          </div>
+          <div class="work-info">
+            <span class="work-platform ks">快手 290.4万</span>
+            <span class="work-platform bili">B站 64.1万</span>
+            <h3 class="work-title">《不败的狗熊》</h3>
+            <p class="work-meta">AI 音乐 MV 二创</p>
+          </div>
+        </a>
+
+        <a class="glass work-card" href="https://v.kuaishou.com/KUyIhEe8" target="_blank" rel="noopener" data-reveal>
+          <div class="work-cover">
+            <img src="assets/covers/dingliang.jpg" alt="光头强找到丁亮" loading="lazy">
+            <span class="work-views">▶ 全网 268万+</span>
+            <span class="work-badge-hot">🔥 快手热榜</span>
+          </div>
+          <div class="work-info">
+            <span class="work-platform ks">快手 264.9万</span>
+            <h3 class="work-title">光头强找到丁亮</h3>
+            <p class="work-meta">AI 抽象剧情 · 获赞 17.1万</p>
+          </div>
+        </a>
+
+        <!-- TODO:补充 「有种正面豪」抖音封面截图（当前为渐变占位） -->
+        <a class="glass work-card" href="https://www.douyin.com/user/MS4wLjABAAAAIqaASzQ-m0BR4X4_Z0t8kLSNDS3jp0YPZEdNn1j6OYkvZCTKIpKGWT-RFb6nuvdb" target="_blank" rel="noopener" data-reveal>
+          <div class="work-cover cover-placeholder ph-red">
+            <span class="ph-emoji">🥊</span>
+            <span class="work-views">▶ 255.1万</span>
+          </div>
+          <div class="work-info">
+            <span class="work-platform dy">抖音 255.1万</span>
+            <h3 class="work-title">有种正面豪！</h3>
+            <p class="work-meta">AI 抽象搞笑 · 分享 6.4万</p>
+          </div>
+        </a>
+
+        <a class="glass work-card" href="https://www.bilibili.com/video/BV1FLcYzLE7T" target="_blank" rel="noopener" data-reveal>
+          <div class="work-cover">
+            <img src="assets/covers/saga.jpg" alt="AI自制奥特银河格斗：赛迦登场" loading="lazy">
+            <span class="work-views">▶ 全网 204万+</span>
+          </div>
+          <div class="work-info">
+            <span class="work-platform bili">B站 107.6万</span>
+            <span class="work-platform dy">抖音 97.1万</span>
+            <h3 class="work-title">AI 自制奥特银河格斗 · 赛迦登场</h3>
+            <p class="work-meta">大制作剧情向 · 圆了让赛迦登场的梦</p>
+          </div>
+        </a>
+
+        <!-- TODO:补充 「休息一下马上回来」抖音封面截图（当前为渐变占位） -->
+        <a class="glass work-card" href="https://www.douyin.com/user/MS4wLjABAAAAIqaASzQ-m0BR4X4_Z0t8kLSNDS3jp0YPZEdNn1j6OYkvZCTKIpKGWT-RFb6nuvdb" target="_blank" rel="noopener" data-reveal>
+          <div class="work-cover cover-placeholder ph-amber">
+            <span class="ph-emoji">🐔</span>
+            <span class="work-views">▶ 156万</span>
+          </div>
+          <div class="work-info">
+            <span class="work-platform dy">抖音 156万</span>
+            <h3 class="work-title">《休息一下马上回来》</h3>
+            <p class="work-meta">Sora 土豆服务器梗 · 分享 10.9万</p>
+          </div>
+        </a>
+
+      </div>
+      <p class="works-foot" data-reveal>
+        还有 80+ 个作品散落在
+        <a href="https://v.kuaishou.com/KUyIhEe8" target="_blank" rel="noopener">快手</a> ·
+        <a href="https://www.douyin.com/user/MS4wLjABAAAAIqaASzQ-m0BR4X4_Z0t8kLSNDS3jp0YPZEdNn1j6OYkvZCTKIpKGWT-RFb6nuvdb" target="_blank" rel="noopener">抖音</a> ·
+        <a href="https://space.bilibili.com/3546699918215726" target="_blank" rel="noopener">B站</a>
+      </p>
+    </section>
+
+    <!-- ④ 造物主 · 开源项目（地球：创造之家） -->
+    <section class="section project" id="project">
+      <header class="section-head" data-reveal>
+        <p class="section-eyebrow">— 03 · 造物主 · <span class="planet-name">EARTH 地球</span> —</p>
+        <h2 class="section-title">不止使用 AI，<br class="mobile-br">我为创作者造工具</h2>
+        <p class="section-desc">把千万播放背后的创作工作流，开源成所有人的生产力</p>
+      </header>
+
+      <div class="glass project-card" data-reveal>
+        <div class="project-main">
+          <div class="project-head">
+            <img class="project-icon" src="assets/project/icon.png" alt="Open Storyboard Canvas 图标">
+            <div>
+              <h3 class="project-name">open-storyboard-canvas</h3>
+              <p class="project-tagline">开源的 AI 分镜与导演台画布</p>
+            </div>
+            <div class="project-stars">
+              <span class="star-num">133 ★</span>
+              <span class="fork-num">27 forks</span>
+            </div>
+          </div>
+          <p class="project-desc">
+            把参考图、提示词、AI 生图编辑、全景环境和 3D 导演台场面调度，全部放进同一个节点画布——
+            让分镜创作从「单次生成」变成<strong>可追踪、可复用、可继续推演</strong>的工作流。
+          </p>
+          <a class="project-trending" href="trending-report.html">
+            <span class="pt-flag">🏆 曾登上 GitHub Trending</span>
+            <span class="pt-stat">13 天 <b>133★</b> · 单日峰值 <b>+27★</b> / <b>179</b> 访问 · <em>github.com</em> 为第一流量来源</span>
+            <span class="pt-go">查看数据战报 →</span>
+          </a>
+          <ul class="project-features">
+            <li>🎨 节点画布 — 上传 / AI 生图 / 分镜 / 全景 / 导演台节点自由编排</li>
+            <li>🎬 3D 导演台 — 摆放人物道具、控制相机灯光画幅，截图直接喂给 AI</li>
+            <li>🌐 全景工作流 — 文生 / 图生全景，导入导演台作为空间背景</li>
+            <li>📚 提示词库 — 预设管理与社区提示词，沉淀创作经验</li>
+            <li>🔌 多供应商 — 内置 + 自定义 AI 供应商统一接入</li>
+          </ul>
+          <div class="project-stack">
+            <span class="tag">Tauri 2</span>
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Rust</span>
+            <span class="tag">SQLite</span>
+            <span class="tag">中英双语</span>
+          </div>
+          <div class="project-cta">
+            <a class="btn btn-primary" href="https://github.com/ganbo-gab/open-storyboard-canvas" target="_blank" rel="noopener">查看源码 ↗</a>
+          </div>
+        </div>
+        <div class="project-shot">
+          <img src="assets/project/provider-settings.png" alt="open-storyboard-canvas 软件截图" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑤ 武器库 · Skills（土星：戴着光环的军械库） -->
+    <section class="section skills" id="skills">
+      <header class="section-head" data-reveal>
+        <p class="section-eyebrow">— 04 · 武器库 · <span class="planet-name">SATURN 土星</span> —</p>
+        <h2 class="section-title">左手创作，右手代码</h2>
+        <p class="section-desc">AIGC 创作力 × 工程实现力</p>
+      </header>
+      <div class="skills-grid">
+
+        <!-- TODO:补充 请确认实际使用的 AI 工具清单与熟练度 -->
+        <div class="glass skill-col" data-reveal>
+          <h3 class="skill-col-title">🎬 AI 创作</h3>
+          <div class="skill-item">
+            <div class="skill-row"><span>AI 视频生成（Sora / 即梦 / 可灵）</span><span class="skill-pct">90%</span></div>
+            <div class="skill-bar"><i style="--w:90%"></i></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span>AI 二创 / AI 抽象内容创作</span><span class="skill-pct">95%</span></div>
+            <div class="skill-bar"><i style="--w:95%"></i></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span>提示词工程</span><span class="skill-pct">88%</span></div>
+            <div class="skill-bar"><i style="--w:88%"></i></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span>剪辑与后期</span><span class="skill-pct">80%</span></div>
+            <div class="skill-bar"><i style="--w:80%"></i></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span>短视频内容策划 / 热点嗅觉</span><span class="skill-pct">92%</span></div>
+            <div class="skill-bar"><i style="--w:92%"></i></div>
+          </div>
+        </div>
+
+        <!-- TODO:补充 请确认编程技能清单与熟练度 -->
+        <div class="glass skill-col" data-reveal>
+          <h3 class="skill-col-title">⚡ 工程开发</h3>
+          <div class="skill-item">
+            <div class="skill-row"><span>TypeScript / JavaScript</span><span class="skill-pct">82%</span></div>
+            <div class="skill-bar"><i style="--w:82%"></i></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span>React</span><span class="skill-pct">80%</span></div>
+            <div class="skill-bar"><i style="--w:80%"></i></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span>Rust / Tauri</span><span class="skill-pct">70%</span></div>
+            <div class="skill-bar"><i style="--w:70%"></i></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span>AI 辅助开发（Agent 工作流）</span><span class="skill-pct">90%</span></div>
+            <div class="skill-bar"><i style="--w:90%"></i></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-row"><span>金融信息服务（专业方向）</span><span class="skill-pct">75%</span></div>
+            <div class="skill-bar"><i style="--w:75%"></i></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ⑥ 联络站 · Contact（水星：众神的信使） -->
+    <section class="section contact" id="contact">
+      <header class="section-head" data-reveal>
+        <p class="section-eyebrow">— 05 · 联络站 · <span class="planet-name">MERCURY 水星</span> —</p>
+        <h2 class="section-title">来我的宇宙做客</h2>
+        <p class="section-desc">水星是众神的信使 —— 四个传送门，直达我的创作现场</p>
+      </header>
+
+      <div class="glass contact-card" data-reveal>
+        <div class="contact-profile">
+          <img class="contact-avatar" src="assets/avatar.jpeg" alt="y不y 头像">
+          <div>
+            <h3 class="contact-name">y不y <span class="contact-alias">UltramanSaga</span></h3>
+            <p class="contact-edu">计算机科学与技术（金融信息服务方向）· 大二在读</p>
+            <p class="contact-slogan">「热爱使用 AI 的人 —— 见证不同的故事，接纳多样的事物」</p>
+          </div>
+        </div>
+
+        <div class="contact-links portal">
+          <a class="contact-link gh" href="https://github.com/ganbo-gab" target="_blank" rel="noopener">
+            <span class="cl-icon">🐙</span><span class="cl-name">GitHub</span><span class="cl-data">133 ★ 开源项目</span>
+            <span class="cl-go">前往 →</span>
+          </a>
+          <a class="contact-link douyin" href="https://www.douyin.com/user/MS4wLjABAAAAIqaASzQ-m0BR4X4_Z0t8kLSNDS3jp0YPZEdNn1j6OYkvZCTKIpKGWT-RFb6nuvdb" target="_blank" rel="noopener">
+            <span class="cl-icon">🎵</span><span class="cl-name">抖音</span><span class="cl-data">58万 获赞</span>
+            <span class="cl-go">前往 →</span>
+          </a>
+          <a class="contact-link bili" href="https://space.bilibili.com/3546699918215726" target="_blank" rel="noopener">
+            <span class="cl-icon">📺</span><span class="cl-name">B站</span><span class="cl-data">8154 粉丝</span>
+            <span class="cl-go">前往 →</span>
+          </a>
+          <a class="contact-link ks" href="https://v.kuaishou.com/KUyIhEe8" target="_blank" rel="noopener">
+            <span class="cl-icon">⚡</span><span class="cl-name">快手</span><span class="cl-data">6.6万 粉丝 · 159.7万 获赞</span>
+            <span class="cl-go">前往 →</span>
+          </a>
+        </div>
+      </div>
+
+      <footer class="footer" data-reveal>
+        <p>© 2026 y不y · 热爱使用 AI 的人</p>
+        <p class="footer-meta">本站由 Three.js 太阳系驱动 · 从太阳出发，每一幕停靠一颗行星</p>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="js/vendor/three.min.js"></script>
+  <script src="js/scene.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
