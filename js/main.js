@@ -158,4 +158,35 @@
       }
     });
   }
+
+  /* ---------- ⑦ GitHub 实时 star / fork ---------- */
+  var GH_REPO = 'ganbo-gab/open-storyboard-canvas';
+  var GH_CACHE = 'gh-stats-osc';
+
+  function applyGh(stars, forks) {
+    document.querySelectorAll('[data-gh-stars]').forEach(function (el) { el.textContent = stars; });
+    document.querySelectorAll('[data-gh-forks]').forEach(function (el) { el.textContent = forks; });
+    if (typeof phrases !== 'undefined') {
+      for (var i = 0; i < phrases.length; i++) {
+        phrases[i] = phrases[i].replace(/\d+⭐/, stars + '⭐');
+      }
+    }
+  }
+
+  (function loadGh() {
+    var fresh = false;
+    try {
+      var c = JSON.parse(localStorage.getItem(GH_CACHE) || 'null');
+      if (c && typeof c.s === 'number') { applyGh(c.s, c.f); fresh = (Date.now() - c.t < 3600000); }
+    } catch (e) {}
+    if (fresh) return; // 缓存仍新鲜，跳过请求
+    fetch('https://api.github.com/repos/' + GH_REPO)
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (!d || typeof d.stargazers_count !== 'number') return;
+        applyGh(d.stargazers_count, d.forks_count);
+        try { localStorage.setItem(GH_CACHE, JSON.stringify({ s: d.stargazers_count, f: d.forks_count, t: Date.now() })); } catch (e) {}
+      })
+      .catch(function () {}); // 静默失败，保留 HTML 里的静态值
+  })();
 })();
